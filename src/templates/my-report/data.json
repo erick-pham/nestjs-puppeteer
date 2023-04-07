@@ -1,0 +1,21 @@
+{
+  "preHappiU": 40,
+  "postHappiU": 80,
+  "insightMessages": [
+    {
+      "insightMessage": "It is possible that you may have under-declared your savings for retirement. If so, please revisit the questions to get a HappiU that reflects your true circumstances.",
+      "priority": 19,
+      "type": "Assess"
+    },
+    {
+      "insightMessage": "It is possible that you may have under-declared your savings for your property goal. If so, please revisit the questions to get a HappiU that reflects your true circumstances.",
+      "priority": 31,
+      "type": "Recommend"
+    },
+    {
+      "insightMessage": "You have a moderate HappiU because you have a significant gap in your child's education goal. You run the risk of not being able to fulfill this goal or fulfilling it in the expense of your other goals.",
+      "priority": 35,
+      "type": "Explain"
+    }
+  ]
+}
