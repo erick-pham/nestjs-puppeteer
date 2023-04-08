@@ -1,4 +1,4 @@
-import { Controller, Get, Res, StreamableFile } from '@nestjs/common';
+import { Controller, Post, Get, Res, StreamableFile } from '@nestjs/common';
 import { AppService } from './app.service';
 import * as puppeteer from 'puppeteer';
 import type { Response } from 'express';
@@ -38,13 +38,13 @@ export class AppController {
     return new StreamableFile(pdf);
   }
 
-  @Get('/api/generate-pdf')
+  @Post('/pdf')
   async generatePDF(@Res({ passthrough: true }) res: Response) {
-    const template = 'templates/my-report';
+    const template = 'dist/templates/my-report';
     const pdfCore = new PDFCore(template);
 
     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const payload = require(`${__dirname}/${template}/data.json`);
+    const payload = require(`./templates/my-report/data.json`);
 
     pdfCore.compile(payload);
 

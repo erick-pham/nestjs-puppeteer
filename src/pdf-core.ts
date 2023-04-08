@@ -15,7 +15,6 @@ export class PDFCore {
   constructor(template: string, options?: PDFOptions) {
     this.template = template;
     this.options = {
-      ...options,
       format: 'A4',
       preferCSSPageSize: true,
       printBackground: true,
@@ -27,7 +26,8 @@ export class PDFCore {
       },
       displayHeaderFooter: true,
       headerTemplate: '<div></div>',
-      footerTemplate: '<div></div>'
+      footerTemplate: '<div></div>',
+      ...options
     };
 
     this.registerHelper();
@@ -36,23 +36,23 @@ export class PDFCore {
 
   resolvePath(type: string) {
     if (type === 'helpers') {
-      return path.join(__dirname, `${this.template}/helpers.js`);
+      return path.join(process.cwd(), `${this.template}/helpers.js`);
     }
 
     if (type === 'style') {
-      return path.join(__dirname, `${this.template}/style.hbs`);
+      return path.join(process.cwd(), `${this.template}/style.hbs`);
     }
 
     if (type === 'content') {
-      return path.join(__dirname, `${this.template}/hbs/content.hbs`);
+      return path.join(process.cwd(), `${this.template}/hbs/content.hbs`);
     }
 
     if (type === 'header') {
-      return path.join(__dirname, `${this.template}/hbs/header.hbs`);
+      return path.join(process.cwd(), `${this.template}/hbs/header.hbs`);
     }
 
     if (type === 'footer') {
-      return path.join(__dirname, `${this.template}/hbs/footer.hbs`);
+      return path.join(process.cwd(), `${this.template}/hbs/footer.hbs`);
     }
 
     throw new Error('FILE_NOT_FOUND');
